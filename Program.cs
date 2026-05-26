@@ -7,6 +7,7 @@ class Program
         do
         {
             Console.Clear();
+            Console.WriteLine("=== TITULO EXCLUSIVO DE LA V1 ===");
             Console.WriteLine("=== CALCULADORA V1 ===");
             Console.WriteLine("1. Sumar");
             Console.WriteLine("2. Restar");
