@@ -3,47 +3,68 @@ class Program
 {
     static void Main()
     {
-        
-        Console.WriteLine("Hello, World!");
-        int a; 
-        int b; 
-        a=10; 
-        b=a; 
-        Console.WriteLine("valor de a:"+a); 
-        Console.WriteLine("valor de b:"+b); 
-
-        Console.Write("Por favor, ingrese un número: ");
-        string? entrada = Console.ReadLine();
-
-        int numero = 0; 
-        bool esNumero = int.TryParse(entrada, out numero);
-
-        if (esNumero)
+        string continuar;
+        do
         {
-         
-            if (numero > 0)
+            Console.Clear();
+            Console.WriteLine("=== CALCULADORA V1 ===");
+            Console.WriteLine("1. Sumar");
+            Console.WriteLine("2. Restar");
+            Console.WriteLine("3. Multiplicar");
+            Console.WriteLine("4. Dividir");
+            Console.Write("Seleccione una opción (1-4): ");
+            string opcion = Console.ReadLine();
+
+            
+            if (opcion != "1" && opcion != "2" && opcion != "3" && opcion != "4")
             {
-                int numeroInvertido = 0;
-                int auxiliar = numero;
-
-                // Ciclo iterativo while (pág. 44)
-                while (auxiliar > 0)
-                {
-                    int ultimoDigito = auxiliar % 10;
-                    numeroInvertido = (numeroInvertido * 10) + ultimoDigito;
-                    auxiliar = auxiliar / 10;
-                }
-
-                Console.WriteLine("El número invertido es: " + numeroInvertido);
+                Console.WriteLine("Opción no válida.");
             }
             else
             {
-                Console.WriteLine("Error: El número debe ser mayor a 0.");
+             
+                Console.Write("Ingrese el primer número: ");
+                if (!double.TryParse(Console.ReadLine(), out double num1))
+                {
+                    Console.WriteLine("Error: El primer valor no es un número válido.");
+                }
+               
+                else Console.Write("Ingrese el segundo número: ");
+                if (!double.TryParse(Console.ReadLine(), out double num2))
+                {
+                    Console.WriteLine("Error: El segundo valor no es un número válido.");
+                }
+                else
+                {
+                    // Realizar operaciones
+                    switch (opcion)
+                    {
+                        case "1":
+                            Console.WriteLine($"Resultado: {num1} + {num2} = {num1 + num2}");
+                            break;
+                        case "2":
+                            Console.WriteLine($"Resultado: {num1} - {num2} = {num1 - num2}");
+                            break;
+                        case "3":
+                            Console.WriteLine($"Resultado: {num1} * {num2} = {num1 * num2}");
+                            break;
+                        case "4":
+                            if (num2 == 0)
+                            {
+                                Console.WriteLine("Error: No se puede dividir entre cero.");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Resultado: {num1} / {num2} = {num1 / num2}");
+                            }
+                            break;
+                    }
+                }
             }
-        }
-        else
-        {
-            Console.WriteLine("Error: El texto ingresado no es un número válido.");
-        }
+
+            Console.Write("\n¿Desea realizar otro cálculo? (s/n): ");
+            continuar = Console.ReadLine().ToLower();
+
+        } while (continuar == "s");
     }
 }
