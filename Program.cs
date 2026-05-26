@@ -6,7 +6,7 @@ class Program
         Console.Clear();
         Console.WriteLine("=== CALCULADORA V2 ===");
         
-        // PARTE 1: Operaciones de un solo número float (pág. 27)
+        
         Console.Write("Ingrese un número (puede ser decimal/float): ");
         float numero = 0;
         bool esFloatValido = float.TryParse(Console.ReadLine(), out numero);
