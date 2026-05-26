@@ -3,68 +3,62 @@ class Program
 {
     static void Main()
     {
-        string continuar;
-        do
-        {
-            Console.Clear();
-            Console.WriteLine("=== CALCULADORA V1 ===");
-            Console.WriteLine("1. Sumar");
-            Console.WriteLine("2. Restar");
-            Console.WriteLine("3. Multiplicar");
-            Console.WriteLine("4. Dividir");
-            Console.Write("Seleccione una opción (1-4): ");
-            string opcion = Console.ReadLine();
+        Console.Clear();
+        Console.WriteLine("=== CALCULADORA V2 ===");
+        
+        // PARTE 1: Operaciones de un solo número float (pág. 27)
+        Console.Write("Ingrese un número (puede ser decimal/float): ");
+        float numero = 0;
+        bool esFloatValido = float.TryParse(Console.ReadLine(), out numero);
 
+        if (esFloatValido)
+        {
+            Console.WriteLine("\nResultados para el número " + numero + ":");
+            Console.WriteLine("- Valor absoluto: " + Math.Abs(numero));
+            Console.WriteLine("- El cuadrado: " + Math.Pow(numero, 2));
             
-            if (opcion != "1" && opcion != "2" && opcion != "3" && opcion != "4")
+            if (numero >= 0)
             {
-                Console.WriteLine("Opción no válida.");
+                Console.WriteLine("- La raíz cuadrada: " + Math.Sqrt(numero));
             }
             else
             {
-             
-                Console.Write("Ingrese el primer número: ");
-                if (!double.TryParse(Console.ReadLine(), out double num1))
-                {
-                    Console.WriteLine("Error: El primer valor no es un número válido.");
-                }
-               
-                else Console.Write("Ingrese el segundo número: ");
-                if (!double.TryParse(Console.ReadLine(), out double num2))
-                {
-                    Console.WriteLine("Error: El segundo valor no es un número válido.");
-                }
-                else
-                {
-                    // Realizar operaciones
-                    switch (opcion)
-                    {
-                        case "1":
-                            Console.WriteLine($"Resultado: {num1} + {num2} = {num1 + num2}");
-                            break;
-                        case "2":
-                            Console.WriteLine($"Resultado: {num1} - {num2} = {num1 - num2}");
-                            break;
-                        case "3":
-                            Console.WriteLine($"Resultado: {num1} * {num2} = {num1 * num2}");
-                            break;
-                        case "4":
-                            if (num2 == 0)
-                            {
-                                Console.WriteLine("Error: No se puede dividir entre cero.");
-                            }
-                            else
-                            {
-                                Console.WriteLine($"Resultado: {num1} / {num2} = {num1 / num2}");
-                            }
-                            break;
-                    }
-                }
+                Console.WriteLine("- La raíz cuadrada: No existe en reales");
             }
 
-            Console.Write("\n¿Desea realizar otro cálculo? (s/n): ");
-            continuar = Console.ReadLine().ToLower();
+            Console.WriteLine("- El seno: " + Math.Sin(numero));
+            Console.WriteLine("- El coseno: " + Math.Cos(numero));
+            
+            // Casteo explícito a entero para obtener la parte entera (pág. 27, 46)
+            int parteEntera = (int)numero; 
+            Console.WriteLine("- La parte entera de un tipo float: " + parteEntera);
+        }
+        else
+        {
+            Console.WriteLine("Error: El valor ingresado no es un número float válido.");
+            return; 
+        }
 
-        } while (continuar == "s");
+        // PARTE 2: Máximos y Mínimos con dos números
+        Console.WriteLine("\n--- Comparación de dos números ---");
+        
+        float n1 = 0;
+        float n2 = 0;
+
+        Console.Write("Ingrese el primer número: ");
+        bool n1Ok = float.TryParse(Console.ReadLine(), out n1);
+
+        Console.Write("Ingrese el segundo número: ");
+        bool n2Ok = float.TryParse(Console.ReadLine(), out n2);
+
+        if (n1Ok && n2Ok)
+        {
+            Console.WriteLine("El Máximo entre ambos es: " + Math.Max(n1, n2));
+            Console.WriteLine("El Mínimo entre ambos es: " + Math.Min(n1, n2));
+        }
+        else
+        {
+            Console.WriteLine("Error: Valores incorrectos.");
+        }
     }
 }
