@@ -1,13 +1,4 @@
-﻿
-class Program
-{
-    static void Main()
-    {
-        Console.Clear();
-        Console.WriteLine("=== TITULO EXCLUSIVO DE LA V2 ===");
-        Console.WriteLine("=== CALCULADORA V2 ===");
-        
-        
+﻿        Console.WriteLine("=== CALCULADORA V2 ===");
         Console.Write("Ingrese un número (puede ser decimal/float): ");
         float numero = 0;
         bool esFloatValido = float.TryParse(Console.ReadLine(), out numero);
@@ -39,8 +30,7 @@ class Program
             Console.WriteLine("Error: El valor ingresado no es un número float válido.");
             return; 
         }
-
-        // PARTE 2: Máximos y Mínimos con dos números
+        
         Console.WriteLine("\n--- Comparación de dos números ---");
         
         float n1 = 0;
@@ -61,5 +51,4 @@ class Program
         {
             Console.WriteLine("Error: Valores incorrectos.");
         }
-    }
-}
+ 
