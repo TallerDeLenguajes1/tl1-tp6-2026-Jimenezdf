@@ -19,8 +19,7 @@
             {
                 int numeroInvertido = 0;
                 int auxiliar = numero;
-
-                // Ciclo iterativo while (pág. 44)
+             
                 while (auxiliar > 0)
                 {
                     int ultimoDigito = auxiliar % 10;
