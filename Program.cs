@@ -1,11 +1,5 @@
 ﻿
-class Program
-{
-    static void Main()
-    {
-        // ====================================================
-        // PARTE 1: CALCULADORA V1 (Operaciones Básicas)
-        // ====================================================
+
         string continuar = "";
         do
         {
@@ -71,9 +65,6 @@ class Program
         } while (continuar == "s");
 
 
-        // ====================================================
-        // PARTE 2: CALCULADORA V2 (Funciones Avanzadas)
-        // ====================================================
         Console.WriteLine("\nPresione cualquier tecla para pasar a la CALCULADORA V2...");
         Console.ReadKey();
         Console.Clear();
@@ -109,7 +100,6 @@ class Program
             Console.WriteLine("Error: El valor ingresado no es un número float válido.");
         }
 
-        // PARTE 3: Comparación de dos números
         Console.WriteLine("\n--- Comparación de dos números ---");
         float n1 = 0;
         float n2 = 0;
@@ -131,5 +121,4 @@ class Program
         }
 
         Console.WriteLine("\n¡Programa finalizado con éxito!");
-    }
-}
+    
