@@ -1,10 +1,4 @@
-﻿
-class Program
-{
-    static void Main()
-    {
-        
-        Console.WriteLine("Hello, World!");
+﻿  Console.WriteLine("Hello, World!");
         int a; 
         int b; 
         a=10; 
@@ -45,5 +39,4 @@ class Program
         {
             Console.WriteLine("Error: El texto ingresado no es un número válido.");
         }
-    }
-}
+ 
